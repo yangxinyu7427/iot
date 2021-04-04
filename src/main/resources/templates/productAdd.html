@@ -7,11 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-<p th:text="msg">text</p>
+<p th:text="${msg}">text</p>
     <div class="addForm">
         <form action="/bind" method="get">
         <p>请填写所要添加设备的序列号</p>
-        <input type="text" name="EquipmentUrl">
             <input type="text" name="EquipmentUid">
         <button>提交</button>
         </form>

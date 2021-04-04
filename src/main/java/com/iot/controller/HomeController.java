@@ -43,12 +43,12 @@ public class HomeController {
         User loginUser = (User)session.getAttribute("loginUser");
         String Username=loginUser.getUsername();
         if(userSeviceImpl.getEquipmentByUid(EquipmentUid)!=null){
-            model.addAttribute("msg","已绑定的设备");
-            return "productAdd";
-        }
-        else{
             userSeviceImpl.saveEquipment(Username,EquipmentUid);
             return "forward:/home";
+        }
+        else{
+            model.addAttribute("msg","请先打开设备并联网");
+           return "productAdd";
         }
     }
 
