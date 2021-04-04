@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="console/header">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/JQuery/jquery.js"></script>
+  <script src="../JS/Vue/vue.js"></script>
+  <link rel="stylesheet" href="../css/function/sidebar.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_2417438_daz901938vf.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body,
+    .liBox {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .liBox ul {
+      background-color: rgb(228, 231, 233);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      list-style: none;
+      border-radius: 30px;
+    }
+
+    .liBox ul li {
+      height: 120px;
+      width: 100px;
+      margin: 20px 20px;
+      display: block;
+      float: left;
+    }
+
+    .boxes {
+      height: 120px;
+      width: 100px;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .prdtImg {
+      height: 100px;
+      width: 100%;
+    }
+
+    .prdtImg:hover {
+      transform: scale(1.1, 1.1);
+      transition: all .1s ease;
+    }
+
+    .prdtTitle {
+      height: 20px;
+      width: 100px;
+      line-height: 20px;
+      text-align: center;
+      position: absolute;
+      color: rgb(96, 98, 99);
+      font-size: large;
+      font-weight: lighter;
+    }
+
+    .addProduct {
+      height: 40vh;
+      width: 30vw;
+      background-color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    .proReg {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      border: 1px #ccc solid;
+    }
+
+    .exit button {
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      right: 0%;
+      top: 0;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .registerInner {
+      height: 80%;
+      width: 80%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .registerInner input {
+      height: 4vh;
+      width: 100%;
+    }
+
+    .registerInner p {
+      margin: 0 auto;
+      margin-top: 10%;
+      margin-bottom: 8%;
+      font-size: medium;
+      font-weight: lighter;
+    }
+
+    .registerInner button {
+      height: 4vw;
+      width: 4vw;
+      margin: 20px auto;
+      margin-bottom: 10%;
+      margin-top: 8%;
+      outline: none;
+      border: none;
+      transform: scale(1.2, 1.2);
+      font-size: small;
+      font-weight: lighter;
+      background-color: #ccc;
+      border-radius: 100%;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+  
+  <script>
+    window.onload = function () {
+      var app = new Vue({
+        el: "#app",
+        data: {
+          lists: [
+            { img: "../img/bx.png", title: "冰箱" },
+            { img: "../img/yg.png", title: "鱼缸" }
+          ]
+        },
+        methods: {
+          add: function () {
+            var add = document.getElementById('addWindow');
+            add.style.display = 'block';
+          },
+          exit: function () {
+            var add = document.getElementById('addWindow');
+            add.style.display = 'none';
+          }
+        }
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript" th:inline="javascript">
+    var dealMeasureEnum = [[${user.name}]];
+  </script>
+  <div class="fixSide">
+    <div class="sidebar">
+      <ul>
+        <img class="homebar" src="../../../img/homebar-white.png" alt="">
+        <li>
+          <form action="/home" method="get"><button class="iconfont icon-home"> 主页</button></form>
+        </li>
+        <li>
+          <form action="/product" method="get"><button class="iconfont icon-zhuangtai"> 设备</button></form>
+        </li>
+        <li>
+          <form action="/suggest" method="get"></form><button class="iconfont icon-comment-single"> 建议</button>
+        </li>
+        <li>
+          <form action="/"></form><button class="iconfont icon-shezhi"> 设置</button>
+        </li>
+        <li>
+          <form action="/"></form><button class="iconfont icon-tuichu"> 退出</button>
+        </li>
+      </ul>
+    </div>
+    <div class="sidebox">
+      <a class="btn icon"></a>
+    </div>
+    <script src="../../../JS/page/home/home1.js"></script>
+  </div>
+  <div id="app" class="liBox">
+    <ul>
+      <li v-for="products in lists">
+        <button class="boxes">
+          <img class="prdtImg" v-bind:src="products.img" alt="">
+          <p class="prdtTitle">{{ products.title }}</p>
+        </button>
+      </li>
+      <!-- <li>
+        <button class="boxes">
+          <img class="prdtImg" src="../img/bx.png" alt="">
+          <p class="prdtTitle">冰箱</p>
+        </button>
+      </li>
+      <li>
+        <button class="boxes">
+          <img class="prdtImg" src="../img/yg.png" alt="">
+          <p class="prdtTitle">鱼缸</p>
+        </button>
+      </li> -->
+      <li>
+        <button class="boxes" @click='add'>
+          <img class="prdtImg" src="../img/plus.png" alt="">
+          <p class="prdtTitle">添加设备</p>
+        </button>
+      </li>
+    </ul>
+    <div class="addProduct" contenteditable="true" id="addWindow">
+      <div class="proReg">
+        <div class="exit">
+          <button class="iconfont icon-chahao" @click='exit'></button>
+        </div>
+        <form action="/bind" class="registerInner" method="get">
+          <p>请输入您所要添加设备的序列号</p>
+          <input type="text" name="EquipmentUrl">
+          <button>确定</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

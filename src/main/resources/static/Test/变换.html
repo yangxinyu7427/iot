@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/Vue/vue.js"></script>
+  <style>
+    #app {
+      height: 100px;
+      width: 100px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button id="btn" @click='test'></button>
+  </div>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      methods: {
+        test: function () {
+          var app = document.getElementById('app');
+          app.style.backgroundColor = 'red';
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

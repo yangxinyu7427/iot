@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkX-登录</title>
+  <link rel="stylesheet" href="../../../css/page/LoginAndRegister/login.css">
+  <!-- <script src="../../../JS/page/LoginAndRegister/login.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="../../../JS/page/LoginAndRegister/login2.js"></script>
+</head>
+
+<body>
+  <div id="login">
+    <div class="RL_logo">
+      <img src="../../../img/RegisterAndLogIn.png" alt="">
+    </div>
+    <script id="canvas_nest" defer="defer" color="0,0,128" opacity="1" zindex="-999" count="99" mobile="false"
+      src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js">
+      </script>
+    <script defer="defer" id="fluttering_ribbon" mobile="false"
+      src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js">
+      </script>
+    <div id="MainBody">
+      <div class="logininner">
+        <form action="/login" class="LoginForm" method="post">
+          <div id="app" class="LoginWay">
+            <div class="LoginWay_choice" v-bind:class="{'active':istrue1}" @click="ActiveNow1">
+              <p>账号密码登录</p>
+              <div id="bar"></div>
+            </div>
+            <div class="LoginWay_choice" v-bind:class="{'active':istrue2}" @click="ActiveNow2">
+              <p>其他登录</p>
+              <div id="bar"></div>
+            </div>
+          </div>
+          <div class="name">
+            <div class="nameIn">
+              <label class="nameInlabel">
+                <input type="text" name="username" placeholder="请输入用户名" class="Input">
+              </label>
+            </div>
+          </div>
+          <div class="divide"></div>
+          <div class="psd">
+            <div class="psdIn">
+              <label class="psdInlabel">
+                <input type="text" name="userpsd" placeholder="请输入密码" class="Input">
+              </label>
+            </div>
+          </div>
+          <div class="divide2"></div>
+          <div class="login">
+            <button class="loginIn">登录</button>
+          </div>
+        </form>
+        <div class="LoginFunction">
+          <div class="lose_psd">
+            <button class="get-psd">
+              忘记密码?
+            </button>
+          </div>
+          <div class="new_user">
+            <form action="/register">
+              <button class="register" id="RegBtn">
+                注册
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="hideTip">本产品最终解释权归产品小组所有</div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

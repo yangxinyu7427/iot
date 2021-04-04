@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/JQuery/jquery.js"></script>
+</head>
+
+<body>
+  <input type="range" max="100" min="0" value="0" class="ra" id="ra" style="height: 50px" />
+  <div class="show" id="show"
+    style="display: inline-block;height: 50px;width: 50px;line-height:50px;background-color: antiquewhite;text-align: center;margin-left: 10px;position: absolute;top: 0%;">
+  </div>
+  <div id="sure" style="height: 50px;width: 50px;background-color: aquamarine;">确定</div>
+  <script type="text/javascript">
+    $(function () {
+      // $("#ra").change(function () {
+      //   $("#show").text($(this).val());
+      // })
+
+      setInterval(function () {
+        $("#show").text($("#ra").val());
+      }, 0.01)
+    })
+    // var show = document.getElementById('show');
+    // alert(show.innerText)
+    var sure = document.getElementById('sure');
+    sure.onclick = function(){
+      alert()
+    }
+  </script>
+</body>
+
+</html>

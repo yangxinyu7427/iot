@@ -1,0 +1,254 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.register, .registerinner, .LoadingAnimation {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.Loadinginner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: black;
+}
+
+.LoadingAnimation {
+  z-index: 999;
+}
+
+.fontbox {
+  height: 255px;
+  width: 500px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fontxt {
+  height: 255px;
+  width: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fontcollection {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.font {
+  height: 85px;
+  font: 80px Impact;
+  color: white;
+}
+
+.MainBody {
+  height: 100%;
+  width: 100%;
+}
+
+.register_box_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.isShow {
+  display: none;
+}
+
+.RegisterForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+/* .idchoice {
+      position: relative;
+    } */
+
+.idbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 600px;
+}
+
+.user {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  float: left;
+}
+
+.user img {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.userchoice {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.staff {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  float: left;
+}
+
+.staff img {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.staffchoice {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.userchoice, .staffchoice {
+  height: 100%;
+  width: 50%;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: lighter;
+  line-height: 550px;
+  vertical-align: bottom;
+  outline: none;
+}
+
+.RegisterForm {
+  width: 500px;
+}
+
+.RegisterWay {
+  height: 30px;
+  width: 100%;
+}
+
+.RegisterWay_choice {
+  /* height: 60px; */
+  width: 25%;
+  float: left;
+  margin-left: 20px;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: center;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-top-left-radius: 60%;
+  border-top-right-radius: 60%;
+}
+
+.RegisterWay_choice:hover {
+  box-shadow: 0px -6px 17px -1px rgba(204, 204, 204, 0.75);
+  -webkit-box-shadow: 0px -6px 17px -1px rgba(204, 204, 204, 0.75);
+  -moz-box-shadow: 0px -6px 17px -1px rgba(204, 204, 204, 0.75);
+}
+
+.trans {
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #ccc;
+  top: -20px;
+}
+
+.normal, .others {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  margin: 30px 0;
+  border-radius: 5%;
+}
+
+.normal .trans {
+  left: 72.5px;
+}
+
+.others .trans {
+  left: 217.5px;
+}
+
+.item {
+  margin-bottom: 20px;
+  margin-left: 15%;
+}
+
+.Input, .RegisterIn {
+  height: 30px;
+  width: 50%;
+  border: none;
+  background-color: rgb(228, 240, 245);
+  outline: none;
+}
+
+.light {
+  box-shadow: 0px 0px 17px 1px rgba(86, 194, 238, 0.75);
+  -webkit-box-shadow: 0px 0px 17px 1px rgba(86, 194, 238, 0.75);
+  -moz-box-shadow: 0px 0px 17px 1px rgba(86, 194, 238, 0.75);
+}
+
+.spanbox {
+  height: 50px;
+  width: 20%;
+  display: inline-block;
+}
+
+.RegisterInBtn {
+  height: 100%;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.RegisterIn {
+  margin-left: 25%;
+  position: relative;
+}
+
+.bar {
+  width: 0%;
+  height: 100%;
+  background-color: rgb(115, 204, 240);
+  transition: all .2s ease;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  opacity: 0.2;
+}
+
+.RegisterInBtn:hover .bar {
+  width: 100%;
+}

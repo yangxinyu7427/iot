@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/JQuery/jquery.js"></script>
+  <script>
+    var btnObj = document.getElementById('Btn');
+    btnObj.onclick = function () {
+      var flag = false;
+      $.ajax({
+        url: url,
+        async: false,
+        success: function (d) {
+          if (d) {
+            //逻辑代码
+          } else {
+            flag = false;
+          }
+        }
+      })
+      return flag;
+    }
+  </script>
+</head>
+
+<body>
+  <a id="Btn" target="_blank" href="https://www.baidu.com/">我是按钮</a>
+</body>
+
+</html>

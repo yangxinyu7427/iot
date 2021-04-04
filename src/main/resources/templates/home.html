@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/JQuery/jquery.js"></script>
+  <script src="../JS/Vue/vue.js"></script>
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_2417438_mbp08139nu.css">
+  <link rel="stylesheet" href="../css/page/home/home.css">
+</head>
+
+<body>
+  <div class="fixSide">
+    <div class="sidebar">
+      <ul>
+        <img class="homebar" src="../img/homebar-white.png" alt="">
+        <ul>
+          <img class="homebar" src="../img/homebar-white.png" alt="">
+          <li>
+            <form action="/home" method="get"><button class="iconfont icon-home"> 主页</button></form>
+          </li>
+          <li>
+            <form action="/productList" method="get"><button class="iconfont icon-zhuangtai"> 设备</button></form>
+          </li>
+          <li>
+            <form action="/suggest" method="get"></form><button class="iconfont icon-comment-single"> 建议</button>
+          </li>
+          <li>
+            <form action="/"></form><button class="iconfont icon-shezhi"> 设置</button>
+          </li>
+          <li>
+            <form action="/"></form><button class="iconfont icon-tuichu"> 退出</button>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div class="sidebox">
+      <a class="btn icon"></a>
+    </div>
+    <script src="../JS/page/home/home1.js"></script>
+  </div>
+
+  <!-- <div id="app" v-bind:class="{'mask':open}"> -->
+  <div class="homeBanner" id="homeBanner">
+    <div class="bannerImg" id="bannerImg"></div>
+    <div class="bannerTxt" id="bannerTxt">
+      <p>你好</p>
+      <p style="font-size: 30px;">See a World in a Grain of Sand</p>
+    </div>
+    <script src="../JS/page/home/home2.js"></script>
+    <div class="bannerGuide">
+      START
+      <a href="javascript:;" class="iconfont icon-arrow-down-bold" id="anchor"></a>
+    </div>
+    <script src="../JS/page/home/home3.js"></script>
+  </div>
+  <div class="homeBody">
+    <div class="homePage" id="app">
+      <div class="homeTag">
+        <button class="photoFileBtn">修改头像</button>
+        <input type="file" name="" id="user-photo" title="" />
+        <div id="show-picture">
+          <img id="imgIn" src="../img/head.gif" alt="" title="暂未提供图片剪切功能, 建议使用长宽比为1的图片用作您的头像┑(￣Д ￣)┍">
+        </div>
+        <script src="../JS/page/home/home4.js"></script>
+        <h4 class="tagUser">用户名:仍在开发中</br></br>设备数量:仍在开发中</h4>
+      </div>
+      <div class="homeTime">
+        <div class="clock">
+          <div class="hour">
+            <div class="display"></div>
+          </div>
+          <div class="min">
+            <div class="display"></div>
+          </div>
+          <div class="sec">
+          </div>
+        </div>
+      </div>
+      <div class="opRecord">
+        <p style="margin: 1vw;padding: 0;font-weight: lighter;font-size: large;">操作记录</p>
+        <div class="opText" style="box-shadow: none;">
+<!--          <p class="op1" th:text="${message1}"></p>-->
+<!--          <p class="op2" th:text="${message2}"></p>-->
+<!--          <p class="op3" th:text="${message3}"></p>-->
+<!--          <p class="op4" th:text="${message4}"></p>-->
+<!--          <p class="op5" th:text="${message5}"></p>-->
+<!--          <p class="op6" th:text="${message6}"></p>-->
+<!--          <p class="op7" th:text="${message7}"></p>-->
+<!--          <p class="op8" th:text="${message8}"></p>-->
+        </div>
+        <div class="showAllOp" style="box-shadow: none;">
+          <button class="showAll iconfont icon-youjiantou">查看</button>
+        </div>
+      </div>
+      <div class="opWindow"></div>
+      <script src="../JS/page/home/home5.js"></script>
+      <div class="details">
+        <p style="margin: 1vw;padding: 0;font-weight: lighter;font-size: large;">个人资料</p>
+        <p class="det1">我是: <p th:text="${loginUser.username}"></p></p>
+        <p class="det2">用户名: <p th:text="${loginUser.username}"></p></p>
+        <p class="det3">邮箱: <p th:text="${loginUser.email}"></p></p>
+        <p class="det4">设备数: <p th:text="${equipmentList.size()}"></p></p>
+        <p class="det5">序列号: <p th:text="${equipmentList}"></p></p>
+      </div>
+      <!-- <div class="homeTip">
+        <p class="iconfont icon-remind" style="margin: 1vw;padding: 0;font-weight: lighter;font-size: large;">公告</p> -->
+        <!-- <div id="scroll_div" class="fl">
+          <div id="scroll_begin">
+            
+          </div>
+          <div id="scroll_end"></div>
+        </div> -->
+      <!-- </div> -->
+      <!-- <script>
+        function ScrollImgLeft() {
+          var speed = 50;
+          var MyMar = null;
+          var scroll_begin = document.getElementById("scroll_begin");
+          var scroll_end = document.getElementById("scroll_end");
+          var scroll_div = document.getElementById("scroll_div");
+          scroll_end.innerHTML = scroll_begin.innerHTML;
+          function Marquee() {
+            if (scroll_end.offsetWidth - scroll_div.scrollLeft <= 0)
+              scroll_div.scrollLeft -= scroll_begin.offsetWidth;
+            else
+              scroll_div.scrollLeft++;
+          }
+          MyMar = setInterval(Marquee, speed);
+          scroll_div.onmouseover = function () {
+            clearInterval(MyMar);
+          }
+          scroll_div.onmouseout = function () {
+            MyMar = setInterval(Marquee, speed);
+          }
+        }
+        ScrollImgLeft();
+      </script> -->
+    </div>
+    <footer class="homeFooter"></footer>
+  </div>
+</body>
+</html>

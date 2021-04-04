@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/Vue/vue.js"></script>
+  <script>
+    window.onload = function(){
+      var app = new Vue({
+        el:"#app",
+        methods: {
+          gothere:function(){
+            window.location.url("www.baidu.com")
+          }
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <div class="fa"><button id="btn" >按钮2</button></div>
+  
+  <div style="height: 500px;width: 500px;background-color: black;"></div>
+  <script>
+    var btn = document.getElementById('btn')
+    btn.onclick = function (){
+      // alert('测试');
+      document.location.assign("辅助.html");
+    }
+  </script>
+</body>
+</html>

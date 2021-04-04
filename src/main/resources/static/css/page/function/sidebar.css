@@ -1,0 +1,98 @@
+.fixSide {
+  margin: 0;
+  padding: 0;
+  /* width: 300px; */
+  height: 100%;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  font-family: sans-serif;
+  z-index: 999;
+}
+
+.sidebar {
+  float: left;
+  width: 300px;
+  height: 100%;
+  margin-left: -300px;
+  background: url('../../../img/bg.gif');
+  overflow: hidden;
+  transition: 0.8s all;
+  /* z-index: 999; */
+}
+
+.homebar {
+  display: block;
+  margin: 10px auto;
+}
+
+.side {
+  margin-left: 0;
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul li {
+  list-style: none;
+}
+
+.sidebar ul li button {
+  text-decoration: none;
+  color: white;
+  height: 60px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: lighter;
+  line-height: 60px;
+  text-align: center;
+  display: block;
+  transition: 0.6s all;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.sidebar ul li::after {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  border-bottom: 1px solid #696969;
+  content: "";
+}
+
+.sidebar ul li button:hover {
+  background: #34495e;
+}
+
+.sidebox {
+  height: 100%;
+  width: 50px;
+  position: relative;
+}
+
+.btn {
+  position: absolute;
+  color: #ccc;
+  top: 50%;
+  float: left;
+  padding: 0 10px;
+  font-size: 30px;
+  text-decoration: none;
+  background-image: linear-gradient(135deg, #000000, #ffffff);
+  font-family: iconfont;
+  cursor: pointer;
+}
+
+.btn:before {
+  content: '\e666';
+  font-size: 30px;
+}
+
+.btnChange:before {
+  content: '\e66f';
+  font-size: 30px;
+}

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <style>
+    .show {
+      width: 30px;
+      height: 30px;
+      border: solid 1px pink;
+      position: absolute;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="range" max="100" min="0" value="0" class="ra" />
+  <div class="show">
+
+  </div>
+
+  <script>
+
+    var show = document.querySelector(".show");
+    var ra = document.querySelector(".ra");
+    var flag = false;
+
+    ra.onmousedown = function () {
+      //div显示
+
+      show.style.display = "block";
+      //div内有range值
+      show.innerHTML = ra.value;
+
+      var templeft = event.clientX;
+      show.style.left = templeft - 15 + "px";
+      flag = true;
+    }
+
+    ra.onmousemove = function () {
+      //范围校验
+      //div随range变化的值
+
+
+      if (flag) {
+
+        var templeft = event.clientX;
+        if (templeft >= 43 && templeft < 201) {
+
+          show.style.left = templeft - 15 + "px";
+          show.innerHTML = ra.value;
+        }
+      }
+    }
+    ra.onmouseup = function () {
+      //添加鼠标抬起事件
+      show.style.display = "none";
+      //鼠标消失
+      flag = false;
+    }
+  </script>
+</body>
+
+</html>

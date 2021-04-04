@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/JQuery/jquery.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tes {
+      height: 100px;
+      width: 100px;
+      background-color: red;
+      position: absolute;
+      border-radius: 100%;
+      /* overflow: hidden; */
+    }
+
+    /* tes::before {
+      content: '';
+      background-color: red;
+    } */
+    .cont {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      border-radius: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: red;
+      display: none;
+      /* transition: all .5s ease; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tes" id="move"></div>
+  <div class="cont" id="cont">
+    <ul>
+      <li>年后有空</li>
+      <li>年后有空</li>
+      <li>年后有空</li>
+      <li>年后有空</li>
+      <li>年后有空</li>
+      <li>年后有空</li>
+      <li>年后有空</li>
+      <li>年后有空</li>
+    </ul>年后有空
+  </div>
+  <script>
+    $("#move").click(function () {
+      $("#move").animate({ height: '300px', width: '300px', left: '50%', top: '50%', margin: '-150px' }, 1500);
+      setTimeout(function () {
+        $("#cont").fadeIn(300, function () {
+        });
+      }, 1500)
+    });
+    $("#cont").click(function () {
+      $("#move").animate({ height: '100px', width: '100px',left:'0',top:'0',margin:'0'}, 1500);
+      setTimeout(function () {
+        $("#cont").fadeOut(.1, function () {
+        });
+      }, 0)
+    });
+  </script>
+</body>
+
+</html>

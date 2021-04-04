@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../JS/JQuery/jquery.js"></script>
+  <style>
+    html,
+    body,
+    .Function {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .functionInner {
+      height: 600px;
+      width: 600px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .bx {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      /* left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%); */
+      margin: 0;
+      padding: 0;
+    }
+
+    .bxImg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      /* left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%); */
+      margin: 0 auto;
+    }
+
+    .wet,
+    .weight,
+    .heat {
+      height: 50px;
+      width: 50px;
+      border: none;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    button.wet {
+      position: absolute;
+      top: 10%;
+      left: 15%;
+      border-radius: 100%;
+    }
+
+    button.heat {
+      position: absolute;
+      left: 20%;
+      top: 60%;
+      border-radius: 100%;
+    }
+
+    button.weight {
+      position: absolute;
+      top: 30%;
+      left: 70%;
+      border-radius: 100%;
+    }
+
+    .wet img,
+    .heat img,
+    .weight img {
+      height: 100%;
+      width: 100%;
+      border-radius: 100%;
+    }
+
+    button.wet::before,
+    button.heat::before,
+    button.weight::before {
+      position: absolute;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background-color: #ccc;
+      opacity: 0.9;
+      content: '';
+      font-size: medium;
+      font-weight: lighter;
+      color: black;
+      line-height: 50px;
+      border-radius: 100%;
+    }
+
+    button.wet::before {
+      content: '湿度';
+    }
+
+    button.heat::before {
+      content: '温度';
+    }
+
+    button.weight::before {
+      content: '载重';
+    }
+
+    .cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+      display: none;
+      z-index: 10;
+    }
+
+    #wetSet,
+    #heatSet,
+    #weightSet {
+      height: 300px;
+      width: 400px;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      /* z-index: 999; */
+      border: 1px solid #ccc;
+    }
+
+    .exit {
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+      color: black;
+      font-weight: lighter;
+      padding: 5px;
+      border: 1px #ccc solid;
+      border-radius: 5px;
+      display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      bottom: 5%;
+      right: 3%;
+    }
+
+    .putBox {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+    }
+
+    .valueIn {
+      height: 5vh;
+      margin: 10px;
+      margin-top: 0;
+    }
+
+    .val {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      /* margin-top: 20px; */
+      height: 20px;
+      width: 65%;
+      /* margin-left: 10px; */
+    }
+
+    .valIn {
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      height: 20px;
+      width: 40px;
+      display: inline-block;
+      line-height: 20px;
+      text-align: center;
+      border: #ccc 1px solid;
+    }
+
+    .postIt {
+      height: 30px;
+      width: 50px;
+      background-color: transparent;
+      border: 1px #ccc solid;
+      outline: none;
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  </style>
+  <script language='javascript' th:inline="javascript">
+    window.onload = function () {
+      var wetVal = document.getElementById('wetVal');
+      var message1 = /*[[${ message }]]*/ 45;
+      wetVal.value = message1;
+      var heatVal = document.getElementById('heatVal');
+      var message2 = /*[[${ message }]]*/ -20;
+      heatVal.value = message2;
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="Function">
+    <div class="functionInner">
+      <div class="bx">
+        <img src="../img/bxF.png" alt="" class="bxImg">
+        <div class="wet">
+          <button class="wet" id="wet" style="position: absolute;"><img id="wetImg" src="../img/sd.png" alt=""></button>
+        </div>
+        <div class="cover" id="jumpWet">
+          <div id="wetSet">
+            <div class="putBox">
+              <a class="exit" href="javascript:;">返回</a>
+              <p style="margin: 10px;">当前湿度为:</p>
+              <p class="wetValue valueIn"></p>
+              <p style="margin: 10px;">进行调整:</p>
+              <form action="/wet" method="post">
+                <input type="range" name="wet" max="75" min="45" class="val" id="wetVal">
+                <div class="valIn" id="wetValIn"></div>
+                <button class="postIt">提交</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="heat">
+          <button class="heat" id="heat"><img id="heatImg" src="../img/wd.png" alt=""></button>
+        </div>
+        <div class="cover" id="jumpHeat">
+          <div id="heatSet">
+            <div class="putBox">
+              <a class="exit" href="javascript:;">返回</a>
+              <p style="margin: 10px;margin-top: 10px;">当前温度为:</p>
+              <p class="heatValue valueIn"></p>
+              <p style="margin: 10px;">进行调整:</p>
+              <form action="/heat" method="post">
+                <input type="range" name="heat" max="0" min="-20" class="val" id="heatVal">
+                <div class="valIn" id="heatValIn"></div>
+                <button class="postIt">提交</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="weight">
+          <button class="weight" id="weight"><img id="weightImg" src="../img/zl.png" alt=""></button>
+        </div>
+        <div class="cover" id="jumpWeight">
+          <div id="weightSet">
+            <div class="putBox">
+              <a class="exit" href="javascript:;">返回</a>
+              <p style="margin: 10px;margin-top: 20px;">当前载重为:</p>
+              <p class="weightValue  valueIn"></p>
+            </div>
+          </div>
+        </div>
+        <script>
+          $("#wet").click(function () {
+            $("#wet").animate({ height: '300px', width: '400px', left: '50%', top: '50%', marginLeft: '-200px', marginTop: '-100px', opacity: '0' }, 200);
+            var timerWet = setTimeout(function () {
+              $("#jumpWet").fadeIn(10, function () {
+              });
+              $("#wetSet").fadeIn(10, function () {
+              });
+              clearTimeout(timerWet);
+            }, 100)
+          });
+          $("#heat").click(function () {
+            $("#heat").animate({ height: '300px', width: '400px', left: '50%', top: '50%', marginLeft: '-200px', marginTop: '-100px', opacity: '0' }, 200);
+            var timerHeat = setTimeout(function () {
+              $("#jumpHeat").fadeIn(10, function () {
+              });
+              $("#heatSet").fadeIn(10, function () {
+              });
+              clearTimeout(timerHeat);
+            }, 100)
+          });
+          $("#weight").click(function () {
+            $("#weight").animate({ height: '300px', width: '400px', left: '50%', top: '50%', marginLeft: '-200px', marginTop: '-100px', opacity: '0' }, 200);
+            var timerWeight = setTimeout(function () {
+              $("#jumpWeight").fadeIn(10, function () {
+              });
+              $("#weightSet").fadeIn(10, function () {
+              });
+              clearTimeout(timerWeight);
+            }, 100)
+          });
+          $(".exit").click(function () {
+            $("#weight").animate({ height: '50px', width: '50px', left: '70%', top: '30%', marginLeft: '0', marginTop: '0', opacity: '1' }, 200);
+            var timerExitWeight = setTimeout(function () {
+              $("#jumpWeight").fadeOut(10, function () {
+              });
+              $("#weightSet").fadeOut(10, function () {
+              });
+              clearTimeout(timerExitWeight);
+            }, 100)
+            $("#wet").animate({ height: '50px', width: '50px', left: '15%', top: '10%', marginLeft: '0', marginTop: '0', opacity: '1' }, 200);
+            var timerExitWet = setTimeout(function () {
+              $("#jumpWet").fadeOut(10, function () {
+              });
+              $("#wetSet").fadeOut(10, function () {
+              });
+              clearTimeout(timerExitWet);
+            }, 100)
+            $("#heat").animate({ height: '50px', width: '50px', left: '20%', top: '60%', marginLeft: '0', marginTop: '0', opacity: '1' }, 200);
+            var timerExitHeat = setTimeout(function () {
+              $("#jumpHeat").fadeOut(10, function () {
+              });
+              $("#heatSet").fadeOut(10, function () {
+              });
+              clearTimeout(timerExitHeat);
+            }, 100)
+          });
+        </script>
+
+        <script>
+          $(function () {
+            var wetTimerVal = setInterval(function () {
+              $("#wetValIn").text($("#wetVal").val() + '%');
+            }, 0.01)
+            var heatTimerVal = setInterval(function () {
+              $("#heatValIn").text($("#heatVal").val() + '℃');
+            }, 0.01)
+          })
+        </script>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

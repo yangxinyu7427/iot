@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>侧边栏</title>
+    <link rel="stylesheet" href="style.css">
+    <!--jQuery code-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2417438_k1qinqmjuio.css">
+    <style>
+        @import 'https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css';
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .fixSide {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: sans-serif;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            z-index: 999;
+        }
+        .sidebar {
+            float: left;
+            width: 300px;
+            height: 100%;
+            margin-left: -300px;
+            background: url('../img/bg.gif');
+            overflow: hidden;
+            transition: 0.8s all;
+        }
+
+        .homebar {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .side {
+            margin-left: 0;
+        }
+
+        .sidebar ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            height: 60px;
+            width: 100%;
+            font-size: 20px;
+            font-weight: lighter;
+            line-height: 60px;
+            text-align: center;
+            display: block;
+            transition: 0.6s all;
+
+        }
+
+        .sidebar ul li::after {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            border-bottom: 1px solid #696969;
+            content: "";
+        }
+
+        .sidebar ul li a:hover {
+            background: #34495e;
+        }
+
+        .sidebox {
+            height: 100%;
+            width: 50px;
+            position: relative;
+        }
+
+        .btn {
+            position: absolute;
+            top: 50%;
+            float: left;
+            padding: 0 10px;
+            font-size: 30px;
+            text-decoration: none;
+            color: black;
+            font-family: iconfont;
+            cursor: pointer;
+        }
+
+        .btn:before {
+            content: '\e666';
+            font-size: 30px;
+        }
+
+        .btnChange:before {
+            content: '\e66f';
+            font-size: 30px;
+            text-shadow: 0 0 5px blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixSide">
+        <div class="sidebar">
+            <ul>
+                <img class="homebar" src="../img/homebar-white.png" alt="">
+                <li><a href="" class="iconfont icon-home"> 主页</a></li>
+                <li><a href="" class="iconfont icon-zhuangtai"> 设备</a></li>
+                <li><a href="" class="iconfont icon-comment-single"> 建议</a></li>
+                <li><a href="" class="iconfont icon-shezhi"> 设置</a></li>
+                <li><a href="" class="iconfont icon-tuichu"> 退出</a></li>
+            </ul>
+        </div>
+        <div class="sidebox">
+            <a class="btn icon"></a>
+        </div>
+        <script type="text/javascript">
+            $('.btn').on('click', function () {
+                $('.btn').toggleClass('btnChange');
+                $('.sidebar').toggleClass('side');
+            })
+        </script>
+       
+    </div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+    <div class="te" style="height:100px;width:100px;background-color: aqua; margin: 5px;"></div>
+
+</body>
+
+</html>

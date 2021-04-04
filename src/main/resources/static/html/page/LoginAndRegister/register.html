@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../../../css/page/LoginAndRegister/register.css">
+  <script src="../../../JS/JQuery/jquery.js"></script>
+  <script src="../../../JS/Vue/vue.js"></script>
+  <script src="../../../JS/page/LoginAndRegister/register.js"></script>
+</head>
+
+<body>
+  <div class="register">
+    <div class="registerinner">
+      <div class="LoadingAnimation" id="LoadingAnimation">
+        <div class="Loadinginner" id="inner">
+          <div class="fontbox">
+            <div class="fontxt">
+              <div class="fontcollection">
+                <div class="font" id="text"></div>
+                <div class="font" id="text2"></div>
+                <div class="font" id="text3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="registerbox">
+        <script id="canvas_nest" defer="defer" color="0,0,128" opacity="1" zindex="-999" count="99" mobile="false"
+          src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js">
+          </script>
+        <script defer="defer" id="fluttering_ribbon" mobile="false"
+          src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js">
+          </script>
+        <div id="MainBody">
+          <div class="register_box_inner" id="app">
+            <div class="idchoice" id="idchoice">
+              <div class="idbox">
+                <div class="user">
+                  <button class="userchoice" @click="GotIt" style="cursor: pointer;"><img src="../../../img/icon/user.png"
+                      alt="">我是用户</button>
+                </div>
+                <div class="staff">
+                  <button class="staffchoice" @click="GotIt2" style="cursor: pointer;"><img src="../../../img/icon/staff.png"
+                      alt="">我是职员</button>
+                </div>
+              </div>
+            </div>
+            <div class="RegisterForm isShow" id="RegisterForm">
+              <form action="/register" class="RegisterForm" method="POST">
+                <div class="RegisterWay">
+                  <div class="RegisterWay_choice" @click="ActiveNow1">
+                    <p>普通注册</p>
+                  </div>
+                  <div class="RegisterWay_choice" @click="ActiveNow2">
+                    <p>其他注册</p>
+                  </div>
+                </div>
+                <div class="normal" v-show="istrue1">
+                  <div class="trans"></div>
+                  <div class="nameIn item" style="margin-top: 30px;">
+                    <div class="spanbox">
+                      <span>用户名:</span>
+                    </div>
+                    <label class="nameInlabel">
+                      <input type="text" name="username" placeholder="请输入用户名" class="Input"
+                        v-bind:class="{light:istrue3}" @click="lighting1">
+                    </label>
+                  </div>
+                  <div class="psdIn item">
+                    <div class="spanbox">
+                      <span>密码:</span>
+                    </div>
+                    <label class="psdInlabel">
+                      <input type="text" name="userpsd" placeholder="请输入密码" class="Input" v-bind:class="{light:istrue4}"
+                        @click="lighting2">
+                    </label>
+                  </div>
+                  <div class="check_psdIn item">
+                    <div class="spanbox">
+                      <span>检查密码:</span>
+                    </div>
+
+                    <label class="check_psdInlabel">
+                      <input type="text" name="usercheck" placeholder="请输入密码以确认" class="Input"
+                        v-bind:class="{light:istrue5}" @click="lighting3">
+                    </label>
+                  </div>
+                  <div class="emailIn item">
+                    <div class="spanbox">
+                      <span>电子邮箱:</span>
+                    </div>
+                    <label class="emailInlabel">
+                      <input type="text" name="useremail" placeholder="请输入邮箱" class="Input"
+                        v-bind:class="{light:istrue6}" @click="lighting4">
+                    </label>
+                  </div>
+                  <div class="agreeIn item">
+                    <label class="agree">
+                      <input type="checkbox" name=agree class="checkbox">
+                    </label>
+                    <span>我已同意条款</span>
+                  </div>
+                  <div class="RegisterIn item" style="margin-bottom: 30px;">
+                    <button class="RegisterInBtn">
+                      普通注册
+                      <div class="bar"></div>
+                    </button>
+                  </div>
+
+                </div>
+                <div class="others" v-show="istrue2">
+                  <div class="trans"></div>
+                  <div class="nameIn item" style="margin-top: 30px;">
+                    <div class="spanbox">
+                      <span>用户名:</span>
+                    </div>
+                    <label class="nameInlabel">
+                      <input type="text" name="usernameOther" placeholder="请输入用户名" class="Input">
+                    </label>
+                  </div>
+                  <div class="psdIn item">
+                    <div class="spanbox">
+                      <span>密码:</span>
+                    </div>
+                    <label class="psdInlabel">
+                      <input type="text" name="userpsdOther" placeholder="请输入密码" class="Input">
+                    </label>
+                  </div>
+                  <div class="check_psdIn item">
+                    <div class="spanbox">
+                      <span>检查密码:</span>
+                    </div>
+
+                    <label class="check_psdInlabel">
+                      <input type="text" name="usercheckOther" placeholder="请输入密码以确认" class="Input">
+                    </label>
+                  </div>
+                  <div class="emailIn item">
+                    <div class="spanbox">
+                      <span>电子邮箱:</span>
+                    </div>
+                    <label class="emailInlabel">
+                      <input type="text" name="useremailOther" placeholder="请输入邮箱" class="Input">
+                    </label>
+                  </div>
+                  <div class="agreeIn item">
+                    <label class="agree">
+                      <input type="checkbox" name=agreeOther class="checkbox">
+                    </label>
+                    <span>我已同意条款</span>
+                  </div>
+                  <div class="RegisterIn item" style="margin-bottom: 30px;">
+                    <button class="RegisterInBtn">
+                      其他注册
+                      <div class="bar"></div>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="RegisterForm2 isShow" id="RegisterForm2">
+              <form action="/register" class="RegisterForm" method="POST">
+                <div class="RegisterWay">
+                  <div class="RegisterWay_choice" @click="ActiveNow1">
+                    <p>普通注册</p>
+                  </div>
+                  <div class="RegisterWay_choice" @click="ActiveNow2">
+                    <p>其他注册</p>
+                  </div>
+                </div>
+                <div class="normal" v-show="istrue1">
+                  <div class="trans"></div>
+                  <div class="nameIn item" style="margin-top: 30px;">
+                    <div class="spanbox">
+                      <span>职工号:</span>
+                    </div>
+                    <label class="nameInlabel">
+                      <input type="text" name="staffname" placeholder="职工号" class="Input" v-bind:class="{light:istrue3}"
+                        @click="lighting1">
+                    </label>
+                  </div>
+                  <div class="psdIn item">
+                    <div class="spanbox">
+                      <span>密码:</span>
+                    </div>
+                    <label class="psdInlabel">
+                      <input type="text" name="staffpsd" placeholder="请输入密码" class="Input" v-bind:class="{light:istrue4}"
+                        @click="lighting2">
+                    </label>
+                  </div>
+                  <div class="check_psdIn item">
+                    <div class="spanbox">
+                      <span>检查密码:</span>
+                    </div>
+
+                    <label class="check_psdInlabel">
+                      <input type="text" name="staffcheck" placeholder="请输入密码以确认" class="Input"
+                        v-bind:class="{light:istrue5}" @click="lighting3">
+                    </label>
+                  </div>
+                  <div class="emailIn item">
+                    <div class="spanbox">
+                      <span>工作邮箱:</span>
+                    </div>
+                    <label class="emailInlabel">
+                      <input type="text" name="staffemail" placeholder="请输入邮箱" class="Input"
+                        v-bind:class="{light:istrue6}" @click="lighting4">
+                    </label>
+                  </div>
+                  <div class="agreeIn item">
+                    <label class="agree">
+                      <input type="checkbox" name=staffagree class="checkbox">
+                    </label>
+                    <span>我已同意条款</span>
+                  </div>
+                  <div class="RegisterIn item" style="margin-bottom: 30px;">
+                    <button class="RegisterInBtn">
+                      普通注册
+                      <div class="bar"></div>
+                    </button>
+                  </div>
+
+                </div>
+                <div class="others" v-show="istrue2">
+                  <div class="trans"></div>
+                  <div class="nameIn item" style="margin-top: 30px;">
+                    <div class="spanbox">
+                      <span>职工号:</span>
+                    </div>
+                    <label class="nameInlabel">
+                      <input type="text" name="staffnameOther" placeholder="请输入职工号" class="Input">
+                    </label>
+                  </div>
+                  <div class="psdIn item">
+                    <div class="spanbox">
+                      <span>密码:</span>
+                    </div>
+                    <label class="psdInlabel">
+                      <input type="text" name="staffpsdOther" placeholder="请输入密码" class="Input">
+                    </label>
+                  </div>
+                  <div class="check_psdIn item">
+                    <div class="spanbox">
+                      <span>检查密码:</span>
+                    </div>
+
+                    <label class="check_psdInlabel">
+                      <input type="text" name="staffcheckOther" placeholder="请输入密码以确认" class="Input">
+                    </label>
+                  </div>
+                  <div class="emailIn item">
+                    <div class="spanbox">
+                      <span>工作邮箱:</span>
+                    </div>
+                    <label class="emailInlabel">
+                      <input type="text" name="staffemailOther" placeholder="请输入邮箱" class="Input">
+                    </label>
+                  </div>
+                  <div class="agreeIn item">
+                    <label class="agree">
+                      <input type="checkbox" name=staffagreeOther class="checkbox">
+                    </label>
+                    <span>我已同意条款</span>
+                  </div>
+                  <div class="RegisterIn item" style="margin-bottom: 30px;">
+                    <button class="RegisterInBtn">
+                      其他注册
+                      <div class="bar"></div>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../../JS/JS_Function_Library/Timer.js"></script>
+  <script src="../../../JS/page/LoginAndRegister/register2.js"></script>
+</body>
+
+</html>

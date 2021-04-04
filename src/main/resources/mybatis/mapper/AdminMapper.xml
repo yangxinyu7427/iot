@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iot.mapper.AdminMapper">
+
+    <!--    public User getUserByid(String username);-->
+    <select id="GetAdminByAdminName" resultType="com.iot.bean.Admin">
+        select * from ADMIN where adminName=#{adminName}
+    </select>
+
+    <!--    public void insertUser(User user);-->
+    <insert id="InsertAdmin" >
+        insert into ADMIN (adminName,adminPsd,email) values(#{adminName},#{adminPsd},#{email})
+    </insert>
+
+</mapper>

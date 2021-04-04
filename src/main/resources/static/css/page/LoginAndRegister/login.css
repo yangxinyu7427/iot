@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  /* background-image: url("../../../img/L&R.jpg"); */
+  position: relative;
+}
+.Logininner {
+  position: relative;
+}
+#MainBody {
+  border: 1px solid #ccc;
+  height: 480px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+  background-color: white;
+}
+#MainBody:hover {
+  box-shadow: 0px 0px 20px 10px rgba(0,164,202,0.75);
+  -webkit-box-shadow: 0px 0px 20px 10px rgba(0,164,202,0.75);
+  -moz-box-shadow: 0px 0px 20px 10px rgba(0,164,202,0.75);
+  transition: all 1s ease;
+}
+.RL_logo {
+  height: 480px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(0%, -50%);
+}
+.LoginWay {
+  height: 60px;
+  width: 100%;
+}
+.LoginWay_choice {
+  height: 60px;
+  width: 25%;
+  float: left;
+  margin-left: 20px;
+  font-size: 15px;
+  line-height: 60px;
+  text-align: center;  
+}
+.LoginWay_choice:hover {
+  cursor: pointer;
+  font-weight: bolder;
+}
+.active {
+  font-weight: bolder;  
+  box-shadow: -1px -16px 24px 9px rgba(14,124,210,0.09) inset;
+  -webkit-box-shadow: -1px -16px 24px 9px rgba(14,124,210,0.09) inset;
+  -moz-box-shadow: -1px -16px 24px 9px rgba(14,124,210,0.09) inset;
+  transition: all .8s ease;
+}
+#bar {
+  width: 0px;
+  height: 3px;
+  background-color:  rgb(0,164,202);
+}
+.LoginWay_choice:hover #bar {
+  width: 100%;
+  transition: all .2s ease;
+}
+input {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+}
+.name {
+  height: 50px;
+  width: 80%;
+  position: absolute;
+  top: 18%;
+  left: 10%;
+}
+.psdIn {
+  height: 50px;
+  width: 80%;
+  position: absolute;
+  top: 38%;
+  left: 10%;
+}
+.login {
+  position: absolute;
+  top: 60%;
+  width: 80%;
+  height: 35px;
+  margin: 0 10%;
+}
+.loginIn {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  outline:none;
+  cursor: pointer;
+}
+.loginIn:hover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(0,164,202,0.75);
+  content: '';
+  transition: all 1s ease;
+  border: none;
+}
+.loginIn:active {
+  background-color: rgba(0,164,202,0.75);
+}
+.get-psd {
+  width: 20%;
+  height: 35px;
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  background-color: white;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+}
+.get-psd:hover {
+  background-color: rgba(0,164,202,0.75);
+  transition: all 1s ease;
+  border: none;
+}
+.get-psd:active {
+  background-color: rgba(0,164,202,0.75);
+}
+.register {
+  width: 20%;
+  height: 35px;
+  position: absolute;
+  top: 70%;
+  right: 10%;
+  background-color: white;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+}
+.register:hover {
+  background-color: rgba(0,164,202,0.75);
+  transition: all 1s ease;
+  border: none;
+}
+.register:active {
+  background-color: rgba(0,164,202,0.75);
+
+}
+.hideTip {
+  height: 21px;
+  width: 100%;
+  position: absolute;
+  top: 90%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10px;
+  color: #ccc;
+}
