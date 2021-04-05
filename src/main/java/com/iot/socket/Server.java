@@ -77,8 +77,8 @@ class ServerThread extends Thread {
         Date time=new Date();
         String stateString=null;
         while (!Objects.equals(readline, "received")) {
-            System.out.println(time.getTime());
-            System.out.println(socket.getRemoteSocketAddress().toString());
+            long times=time.getTime();
+            BigInteger big = new BigInteger(String.valueOf(times));
             try {
                 inTemp = socketIn.readLine();
             } catch (IOException e) {
@@ -92,9 +92,7 @@ class ServerThread extends Thread {
             if(userSeviceImpl.getEquipmentStateByUid(state.getEquipmentUid())!=null)
                 userSeviceImpl.updateEquipmentState(state);
             else userSeviceImpl.saveEquipmentState(state);
-            long times=time.getTime();
-            BigInteger big = new BigInteger(String.valueOf(times));
-            System.out.println(big);
+
             Equipment equipment=new Equipment(socket.getRemoteSocketAddress().toString(),state.getEquipmentUid(),big,1);
             if(userSeviceImpl.getEquipmentByUid(state.getEquipmentUid())!=null)
                 userSeviceImpl.updateEquipment(equipment);
