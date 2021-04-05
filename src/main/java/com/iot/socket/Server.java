@@ -1,5 +1,6 @@
 package com.iot.socket;
 
+import com.iot.bean.Connect;
 import com.iot.bean.Equipment;
 import com.iot.bean.EquipmentState;
 import com.iot.sevlet.UserService;
@@ -13,8 +14,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Date;
 import java.util.Objects;
 @Service
 public class Server {
@@ -71,8 +74,10 @@ class ServerThread extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        Date time=new Date();
+        String stateString=null;
         while (!Objects.equals(readline, "received")) {
+            System.out.println(time.getTime());
             System.out.println(socket.getRemoteSocketAddress().toString());
             try {
                 inTemp = socketIn.readLine();
@@ -80,12 +85,17 @@ class ServerThread extends Thread {
                 e.printStackTrace();
             }
             System.out.println(client + turnLine + inTemp);
-            EquipmentState state=JsonUtil.TransformStateJson(inTemp);
+            Connect connect=JsonUtil.TransformConnectJson(inTemp);
+            EquipmentState state=JsonUtil.TransformStateJson(connect.getEquipmentState());
+            System.out.println(connect);
+            System.out.println(state);
             if(userSeviceImpl.getEquipmentStateByUid(state.getEquipmentUid())!=null)
                 userSeviceImpl.updateEquipmentState(state);
             else userSeviceImpl.saveEquipmentState(state);
-
-            Equipment equipment=new Equipment(socket.getRemoteSocketAddress().toString(),state.getEquipmentUid());
+            long times=time.getTime();
+            BigInteger big = new BigInteger(String.valueOf(times));
+            System.out.println(big);
+            Equipment equipment=new Equipment(socket.getRemoteSocketAddress().toString(),state.getEquipmentUid(),big,1);
             if(userSeviceImpl.getEquipmentByUid(state.getEquipmentUid())!=null)
                 userSeviceImpl.updateEquipment(equipment);
             else userSeviceImpl.insertEquipmentWithoutName(equipment);

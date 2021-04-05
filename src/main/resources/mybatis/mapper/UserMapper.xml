@@ -31,19 +31,19 @@
     </update>
 
     <insert id="saveEquipmentState" >
-        insert into equipmentstate(equipmentuid,temperature,humidity) values(#{equipmentUid},#{temperature},#{humidity})
+        insert into equipmentstate(equipmentuid,temperature,humidity,eggnumber) values(#{equipmentUid},#{temperature},#{humidity},#{eggNumber})
     </insert>
 
     <insert id="insertEquipmentWithoutName" >
-        insert into equipment(equipmenturl,equipmentuid) values(#{EquipmentUrl},#{EquipmentUid})
+        insert into equipment(equipmenturl,equipmentuid,connecttime,connectstate) values(#{EquipmentUrl},#{EquipmentUid},#{connectTime},#{connectState})
     </insert>
 
     <update id="updateEquipment">
-        UPDATE equipment SET equipmenturl=#{EquipmentUrl} WHERE equipmentuid=#{EquipmentUid}
+        UPDATE equipment SET equipmenturl=#{EquipmentUrl},connecttime=#{connectTime},connectstate=#{connectState} WHERE equipmentuid=#{EquipmentUid}
     </update>
 
     <update id="updateEquipmentState">
-        UPDATE equipmentstate SET temperature=#{temperature},humidity=#{humidity} WHERE equipmentuid=#{equipmentUid}
+        UPDATE equipmentstate SET temperature=#{temperature},humidity=#{humidity},eggnumber=#{eggNumber} WHERE equipmentuid=#{equipmentUid}
     </update>
 
     <select id="getEquipmentStateByUid" resultType="com.iot.bean.EquipmentState">
